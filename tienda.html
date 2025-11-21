@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Gutipa: Comprar Yerbas del Olvido</title>
+
+    <style>
+        /* ------------------------------------- */
+        /* ESTILOS GLOBALES Y FUENTES */
+        /* ------------------------------------- */
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@400;700&display=swap');
+        
+        :root {
+            --color-fondo-oscuro: #121C14;
+            --color-rojo-gutipa: #C62D42;
+            --color-verde-lima-fuerte: #A3CC39;
+            --color-texto-principal: #F5F5F5;
+            --color-texto-secundario: #B0B0B0;
+            --color-borde-secciones: #4A5C4F;
+            --color-verde-oscuro-secundario: #233225;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: var(--color-fondo-oscuro);
+            color: var(--color-texto-principal);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        header {
+            padding: 40px 20px;
+            background-color: var(--color-fondo-oscuro);
+            border-bottom: 3px solid var(--color-rojo-gutipa);
+            box-shadow: 0 5px 15px rgba(0,0,0,.3);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: var(--color-rojo-gutipa);
+            margin-bottom: 0;
+        }
+
+        header h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8em;
+            color: var(--color-verde-lima-fuerte);
+            margin-top: 5px;
+            font-weight: 400;
+        }
+        .btn-home {
+            display: inline-block;
+            margin-top: 12px;
+            background-color: var(--color-rojo-gutipa);
+            color: var(--color-texto-principal);
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            transition: background-color .2s, transform .15s;
+        }
+        .btn-home:hover { background-color: var(--color-verde-lima-fuerte); color: var(--color-fondo-oscuro); transform: translateY(-2px); }
+
+        .contenedor {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .producto-card {
+            display: flex;
+            background-color: var(--color-verde-oscuro-secundario);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,.4);
+            border: 1px solid var(--color-borde-secciones);
+            text-align: left;
+        }
+
+        .producto-imagen {
+            flex: 1;
+            padding: 40px;
+            background-color: var(--color-fondo-oscuro);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid var(--color-borde-secciones);
+        }
+
+        .imagen-placeholder {
+            width: 100%;
+            max-width: 300px;
+            height: 400px;
+            background-color: #333;
+            border: 2px solid var(--color-verde-lima-fuerte);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://image.pollinations.ai/prompt/Elegant%20traditional%20bottle%20of%20Andean%20herbal%20liquor%20Gutipa%20on%20dark%20wood?width=300&height=400');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .simbolo-rojo {
+            font-size: 5em;
+            color: var(--color-rojo-gutipa);
+            line-height: .5;
+            margin-top: -20px;
+            border-top: 5px solid var(--color-rojo-gutipa);
+            width: 50px;
+        }
+
+        .producto-detalles {
+            flex: 1.5;
+            padding: 40px;
+        }
+
+        .producto-detalles h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--color-verde-lima-fuerte);
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--color-rojo-gutipa);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .producto-detalles p {
+            color: var(--color-texto-secundario);
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .precio {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--color-rojo-gutipa);
+            margin: 20px 0;
+        }
+
+        .precio small {
+            font-size: .5em;
+            color: var(--color-texto-secundario);
+        }
+
+        .form-compra label {
+            display: block;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: .9em;
+            color: var(--color-verde-lima-fuerte);
+            text-align: left;
+        }
+
+        .form-compra select,
+        .form-compra input[type="number"] {
+            width: 100px;
+            padding: 10px;
+            margin-right: 15px;
+            border: 1px solid var(--color-borde-secciones);
+            background-color: var(--color-fondo-oscuro);
+            color: var(--color-texto-principal);
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-compra button {
+            background-color: var(--color-verde-lima-fuerte);
+            color: var(--color-fondo-oscuro);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color .3s, transform .3s;
+        }
+
+        .form-compra button:hover {
+            background-color: var(--color-rojo-gutipa);
+            color: var(--color-texto-principal);
+            transform: translateY(-2px);
+        }
+
+        .envio-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-borde-secciones);
+            font-size: .9em;
+            color: var(--color-texto-secundario);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .envio-info strong {
+            color: var(--color-verde-lima-fuerte);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 30px 20px;
+            background-color: var(--color-fondo-oscuro);
+            border-top: 3px solid var(--color-verde-lima-fuerte);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        footer p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: .9em;
+            color: var(--color-texto-secundario);
+            margin: 0;
+        }
+
+        .social-links a {
+            font-size: 2.5em;
+            color: var(--color-rojo-gutipa);
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color .3s, transform .3s;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .social-links a:hover {
+            color: var(--color-verde-lima-fuerte);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 800px) {
+            .producto-card { flex-direction: column; }
+            .producto-imagen { border-right: none; border-bottom: 1px solid var(--color-borde-secciones); }
+            .producto-detalles { text-align: center; }
+            .simbolo-rojo { border-top: none; margin-top: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Gutipa</h1>
+        <h2>Tienda Oficial de Yerbas del Olvido</h2>
+        <a href="index.html" class="btn-home" aria-label="Ir a la página principal">Inicio</a>
+    </header>
+
+    <div class="contenedor">
+        <section class="producto-card">
+
+            <div class="producto-imagen">
+                <div class="imagen-placeholder"></div>
+                <div class="simbolo-rojo"></div>
+            </div>
+
+            <div class="producto-detalles">
+                <h3>Edición Clásica | 38 vol.</h3>
+
+                <p style="font-family: 'Great Vibes', cursive; font-size: 1.4em; color: var(--color-texto-principal);">
+                    "Es el espíritu de los valles chichñeos..."
+                </p>
+
+                <p>
+                    El auténtico destilado boliviano, elaborado con las más finas "Yerbas del Olvido". Un sabor herbal y complejo que evoca la riqueza cultural y paisajística de Tupiza. Ideal para beber solo o en cócteles que celebran la tradición andina.
+                </p>
+
+                <div class="precio">
+                    Bs. 185<small> / Unidad</small>
+                </div>
+
+                <form class="form-compra">
+                    <div>
+                        <label for="cantidad">CANTIDAD</label>
+                        <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="10">
+                    </div>
+
+                    <div>
+                        <label for="tipo_envio">TIPO DE ENVÍO</label>
+                        <select id="tipo_envio" name="tipo_envio">
+                            <option value="estandar">Estándar (3-5 días)</option>
+                            <option value="express">Express (24h)</option>
+                            <option value="recoger">Recoger en Tienda (Gratis)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">AÑADIR AL CARRITO</button>
+                </form>
+
+                <div class="envio-info">
+                    Envío Estándar: Bs. 25.00 a nivel nacional. <br>
+                    Producto exclusivo de Gooyoose Tupiza. 100% artesanal.
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2023 Gooyoose Tupiza. Todos los derechos reservados.</p>
+        <p>¿Dudas? Contáctanos: ventas@gutipa.com | Tel: +591 72526746</p>
+        <div class="social-links">
+            <a href="#" target="_blank">f</a>
+            <a href="#" target="_blank">t</a>
+            <a href="#" target="_blank">i</a>
+        </div>
+    </footer>
+
+</body>
+</html>
