@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="es"><head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Tienda Gutipa: Comprar Yerbas del Olvido</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@400;700&display=swap');
@@ -11,11 +13,38 @@ header h2{font-family:'Great Vibes',cursive;font-size:1.8em;color:var(--color-ve
 .btn-home:hover{background-color:var(--color-verde-lima-fuerte);color:var(--color-fondo-oscuro);transform:translateY(-2px);}
 .contenedor{max-width:1000px;margin:40px auto;padding:0 20px;}
 .producto-card{display:flex;background-color:var(--color-verde-oscuro-secundario);border-radius:8px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.4);border:1px solid var(--color-borde-secciones);text-align:left;}
-/* --- Se ha ELIMINADO completamente la sección .producto-imagen --- */
-/* .producto-imagen{flex:1;padding:40px;background-color:var(--color-fondo-oscuro);display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:1px solid var(--color-borde-secciones);} */
-/* .simbolo-rojo{font-size:5em;color:var(--color-rojo-gutipa);line-height:.5;margin-top:-20px;border-top:5px solid var(--color-rojo-gutipa);width:50px;} */
 
-.producto-detalles{flex:1;padding:40px;} /* Modificado para que ocupe todo el ancho */
+/* ------------------------------------- */
+/* SECCIÓN DE IMAGEN DEL PRODUCTO */
+/* ------------------------------------- */
+.producto-imagen{
+    flex: 1;
+    padding: 20px;
+    background-color: var(--color-fondo-oscuro);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--color-borde-secciones);
+}
+
+.imagen-producto{
+    display: block;
+    width: auto;
+    max-width: 300px; /* ancho máximo */
+    max-height: 380px; /* limitar alto para mantener diseño */
+    border: 2px solid var(--color-verde-lima-fuerte);
+    border-radius: 6px;
+    object-fit: contain; /* mantener proporciones sin recortar */
+    box-shadow: 0 6px 18px rgba(0,0,0,.45);
+}
+
+/* ------------------------------------- */
+
+.producto-detalles{
+    flex: 1.5; /* Ocupa 1.5 partes del espacio, es más grande */
+    padding: 40px;
+} 
 .producto-detalles h3{font-family:'Playfair Display',serif;font-size:2.5em;color:var(--color-verde-lima-fuerte);margin-bottom:10px;border-bottom:2px solid var(--color-rojo-gutipa);display:inline-block;padding-bottom:5px;}
 .producto-detalles p{color:var(--color-texto-secundario);font-size:1.1em;margin-bottom:20px;}
 .precio{font-family:'Montserrat',sans-serif;font-size:3em;font-weight:700;color:var(--color-rojo-gutipa);margin:20px 0;}
@@ -30,7 +59,7 @@ footer{margin-top:40px;padding:30px 20px;background-color:var(--color-fondo-oscu
 footer p{font-family:'Montserrat',sans-serif;font-size:.9em;color:var(--color-texto-secundario);margin:0;}
 .social-links a{font-size:2.5em;color:var(--color-rojo-gutipa);margin:0 15px;text-decoration:none;transition:color .3s,transform .3s;display:inline-block;font-weight:700;}
 .social-links a:hover{color:var(--color-verde-lima-fuerte);transform:scale(1.1);}
-@media (max-width: 800px){.producto-card{flex-direction:column;}.producto-imagen{border-right:none;border-bottom:1px solid var(--color-borde-secciones);}.producto-detalles{text-align:center;}.simbolo-rojo{border-top:none;margin-top:0;}}
+@media (max-width: 800px){.producto-card{flex-direction:column;}.producto-imagen{border-right:none;border-bottom:1px solid var(--color-borde-secciones);}.producto-detalles{text-align:center;}}
 </style>
 </head>
 <body>
@@ -41,33 +70,37 @@ footer p{font-family:'Montserrat',sans-serif;font-size:.9em;color:var(--color-te
 </header>
 <div class="contenedor">
 <section class="producto-card">
-<div class="producto-detalles">
-<h3>Edición Clásica | 38 vol.</h3>
-<p style="font-family: 'Great Vibes', cursive; font-size: 1.4em; color: var(--color-texto-principal);">"Es el espíritu de los valles chichñeos..."</p>
-<p>El auténtico destilado boliviano, elaborado con las más finas "Yerbas del Olvido". Un sabor herbal y complejo que evoca la riqueza cultural y paisajística de Tupiza. Ideal para beber solo o en cócteles que celebran la tradición andina.</p>
-<div class="precio">Bs. 185<small> / Unidad</small></div>
-<form class="form-compra">
-<div>
-<label for="cantidad">CANTIDAD</label>
-<input type="number" id="cantidad" name="cantidad" value="1" min="1" max="10">
-</div>
-<div>
-<label for="tipo_envio">TIPO DE ENVÍO</label>
-<select id="tipo_envio" name="tipo_envio">
-<option value="estandar">Estándar (3-5 días)</option>
-<option value="express">Express (24h)</option>
-<option value="recoger">Recoger en Tienda (Gratis)</option>
-</select>
-</div>
-<button type="submit">AÑADIR AL CARRITO</button>
-</form>
-<div class="envio-info">Envío Estándar: Bs. 25.00 a nivel nacional. <br>Producto exclusivo de Gooyoose Tupiza. 100% artesanal.</div>
-</div>
+            <div class="producto-imagen">
+                <img src="mockup 1.png" alt="Yerbas del Olvido Gutipa" class="imagen-producto">
+            </div>
+
+    <div class="producto-detalles">
+        <h3>Edición Clásica | 38 vol.</h3>
+        <p style="font-family: 'Great Vibes', cursive; font-size: 1.4em; color: var(--color-texto-principal);">"Es el espíritu de los valles chichñeos..."</p>
+        <p>El auténtico destilado boliviano, elaborado con las más finas "Yerbas del Olvido". Un sabor herbal y complejo que evoca la riqueza cultural y paisajística de Tupiza. Ideal para beber solo o en cócteles que celebran la tradición andina.</p>
+        <div class="precio">Bs. 185<small> / Unidad</small></div>
+        <form class="form-compra">
+            <div>
+                <label for="cantidad">CANTIDAD</label>
+                <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="10">
+            </div>
+            <div>
+                <label for="tipo_envio">TIPO DE ENVÍO</label>
+                <select id="tipo_envio" name="tipo_envio">
+                    <option value="estandar">Estándar (3-5 días)</option>
+                    <option value="express">Express (24h)</option>
+                    <option value="recoger">Recoger en Tienda (Gratis)</option>
+                </select>
+            </div>
+            <button type="submit">AÑADIR AL CARRITO</button>
+        </form>
+        <div class="envio-info">Envío Estándar: Bs. 25.00 a nivel nacional. <br>Producto exclusivo de Gooyoose Tupiza. 100% artesanal.</div>
+    </div>
 </section>
 </div>
 <footer>
 <p>© 2023 Gooyoose Tupiza. Todos los derechos reservados.</p>
-<p>¿Dudas? Contáctanos: ventas@gutipa.com | Tel: +591 72526746</p>
+<p>¿Dudas? Contáctanos: <a href="mailto:ventas@gutipa.com" style="color: var(--color-texto-principal); text-decoration: none;">ventas@gutipa.com</a> | Tel: +591 72526746</p>
 <div class="social-links">
 <a href="#" target="_blank">f</a>
 <a href="#" target="_blank">t</a>
