@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GUTIPA: Macerado de Hierbas de Tupiza</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900;1,800&display=swap');
         
         :root {
             /* PALETA DORADO/CAFÉ */
-            --color-dorado: #D4AF37;
+            --color-dorado: #D4AF37; /* Dorado estándar */
             --color-dorado-claro: #E8C875;
-            --color-negro: #1A1A0F;
+            --color-negro: #1A1A0F; /* Negro muy oscuro, casi café */
             --color-negro-claro: #2B2B20;
             --color-cafe-oscuro: #3D3A2A;
             --color-cafe: #4A4632;
             --color-texto-claro: #F5F5F5;
             --color-texto-gris: #B0B0B0;
-            --color-acento: #C9B037;
+            --color-acento: #C9B037; /* Tono de dorado ligeramente más rojizo/cobre */
         }
 
         * {
@@ -28,13 +28,15 @@
 
         body {
             font-family: 'Playfair Display', serif;
+            /* Fondo con gradiente oscuro elegante */
             background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-cafe-oscuro) 100%);
             color: var(--color-texto-claro);
             line-height: 1.7;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* Partículas flotantes de fondo */
+        /* Partículas flotantes de fondo (sutiles brillos dorados) */
         body::before {
             content: '';
             position: fixed;
@@ -57,7 +59,7 @@
             z-index: 1;
         }
 
-        /* ===== HERO MEJORADO ===== */
+        /* ===== HERO MEJORADO (Sección Principal) ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -69,6 +71,7 @@
             padding: 80px 20px;
         }
 
+        /* Efecto de brillo pulsante en el hero */
         .hero::before {
             content: '';
             position: absolute;
@@ -90,7 +93,6 @@
             text-align: center;
             z-index: 2;
         }
-
 
         .hero h1 {
             font-size: clamp(3em, 8vw, 6em);
@@ -144,6 +146,7 @@
             animation: fadeInUp 1.2s ease-out 0.8s both;
         }
 
+        /* Efecto de destello al pasar el ratón */
         .cta-button::before {
             content: '';
             position: absolute;
@@ -165,12 +168,12 @@
             left: 100%;
         }
 
-        /* ===== SECCIONES MEJORADAS ===== */
+        /* ===== ESTILOS GENERALES DE SECCIONES ===== */
         section {
             margin: 100px 0;
             padding: 60px 30px;
-            background: rgba(26, 26, 15, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 15, 0.7); /* Fondo semi-transparente oscuro */
+            backdrop-filter: blur(10px); /* Desenfoque del fondo */
             border-radius: 20px;
             border: 1px solid rgba(212, 175, 55, 0.2);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -178,6 +181,7 @@
             position: relative;
         }
 
+        /* Línea superior dorada de acento */
         section::before {
             content: '';
             position: absolute;
@@ -199,6 +203,7 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
+        /* Subrayado de los títulos de sección */
         section h2::after {
             content: '';
             position: absolute;
@@ -211,7 +216,7 @@
             border-radius: 2px;
         }
 
-        /* ===== GRID DE CURIOSIDADES MEJORADO ===== */
+        /* ===== GRID DE CURIOSIDADES ===== */
         .curiosidades-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -227,8 +232,10 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            cursor: default;
         }
 
+        /* Efecto de brillo interno al pasar el ratón */
         .curiosidad-item::before {
             content: '';
             position: absolute;
@@ -269,7 +276,7 @@
         }
 
         .advertencia {
-            grid-column: 1 / -1;
+            grid-column: 1 / -1; /* Ocupa todo el ancho en el grid */
             background: linear-gradient(135deg, var(--color-cafe-oscuro), var(--color-negro-claro)) !important;
             border: 2px solid var(--color-dorado) !important;
             text-align: center;
@@ -287,7 +294,7 @@
             font-weight: 600;
         }
 
-        /* ===== CÓCTELES MEJORADOS (Diseño de Miniatura) ===== */
+        /* ===== CÓCTELES (Diseño de Miniatura) ===== */
         .cocteles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -314,8 +321,8 @@
         .video-container {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; 
-            background: var(--color-negro); /* Default black fallback */
+            padding-top: 56.25%; /* Ratio 16:9 */
+            background: var(--color-negro);
             border-bottom: 3px solid var(--color-dorado);
         }
 
@@ -327,36 +334,34 @@
             width: 100%;
             height: 100%;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            color: var(--color-texto-claro);
-            font-size: 1.5em;
-            font-weight: bold;
-            text-align: center;
-            transition: background-color 0.3s;
             cursor: pointer;
             
             /* Propiedades de la miniatura de YouTube */
             background-size: cover;
             background-position: center;
-            background-color: rgba(0, 0, 0, 0.4); /* Capa oscura para que el Play resalte */
+            background-color: rgba(0, 0, 0, 0.4); 
+            transition: background-color 0.3s;
         }
 
-        /* Ocultar el texto (¡La clave de la solicitud!) */
+        /* Ocultar el texto dentro del enlace y el span (¡La clave de la solicitud!) */
         .video-link-placeholder {
-            /* Mantenemos el estilo para el contenedor de la imagen */
-            text-indent: -9999px; /* Oculta el texto */
-            white-space: nowrap; /* Evita que el texto envuelto arruine la altura */
-            overflow: hidden; /* Oculta el texto que se desborda */
+            text-indent: -9999px; 
+            white-space: nowrap;
+            overflow: hidden; 
         }
 
-        /* Mostrar solo el ícono de Play */
+        .video-link-placeholder span {
+            display: none;
+        }
+
+        /* Mostrar solo el ícono de Play (usando ::before) */
         .video-link-placeholder::before {
-            content: '▶'; /* Icono de Play */
-            font-size: 7em; /* Aumentamos el tamaño */
-            position: absolute; /* Para centrarlo y no verse afectado por text-indent */
+            content: '▶'; 
+            font-size: 7em; 
+            position: absolute; 
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -364,7 +369,7 @@
             transition: transform 0.3s, color 0.3s;
             text-shadow: 0 0 20px rgba(0,0,0,0.9);
             z-index: 10;
-            text-indent: 0; /* Aseguramos que el ícono sea visible */
+            text-indent: 0; 
         }
         
         .video-link-placeholder:hover::before {
@@ -372,7 +377,11 @@
             color: var(--color-acento);
         }
 
-        /* Definición de las miniaturas por Video ID */
+        .video-link-placeholder:hover {
+            background-color: rgba(0, 0, 0, 0.2); 
+        }
+
+        /* Definición de las miniaturas por Video ID (Imágenes de Youtube) */
         .mojito-thumb {
             background-image: url('https://img.youtube.com/vi/Q5-C9o3w83E/hqdefault.jpg');
         }
@@ -383,17 +392,8 @@
             background-image: url('https://img.youtube.com/vi/W-JKSt5Lg6c/hqdefault.jpg');
         }
 
-        .video-link-placeholder:hover {
-            background-color: rgba(0, 0, 0, 0.2); /* Menos oscuro al pasar el ratón */
-        }
 
-        /* El span que antes contenía texto también debe ser invisible si existiera */
-        .video-link-placeholder span {
-            display: none;
-        }
-
-
-        /* Contenido de la tarjeta */
+        /* Contenido de la tarjeta del cóctel */
         .coctel-card-content {
             padding: 30px;
         }
@@ -484,6 +484,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            /* Usar íconos reales en producción (e.g., Font Awesome) */
         }
 
         .social-links a:hover {
@@ -491,9 +492,8 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(214, 166, 101, 0.4);
         }
-
-        /* ===== ANIMACIONES Y RESPONSIVE ===== */
-
+        
+        /* Animaciones para la carga inicial */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -509,6 +509,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Media Queries para Responsive Design */
         @media (max-width: 768px) {
             .hero {
                 min-height: 90vh;
