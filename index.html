@@ -117,12 +117,12 @@
             animation: fadeInDown 1.2s ease-out 0.4s both;
         }
 
-        /* MODIFICADO: Tamaño de fuente reducido una vez más */
+        /* MODIFICADO: Eliminado font-style: italic; para mejor legibilidad */
         .hero p {
             font-family: 'Playfair Display', serif;
-            font-style: italic;
+            font-style: normal; /* CAMBIO CLAVE: Asegura legibilidad total (sin cursiva) */
             font-weight: 400; 
-            font-size: clamp(1.0em, 2vw, 1.4em); /* TAMAÑO REDUCIDO AQUÍ */
+            font-size: clamp(1.0em, 2vw, 1.4em); 
             max-width: 800px;
             margin: 0 auto 50px;
             color: var(--color-texto-claro);
@@ -541,7 +541,7 @@
             <div class="hero-content">
                 <h1>GUTIPA</h1>
                 <div class="subtitulo">Macerado de Hierbas</div>
-                <p>"Es el espíritu de los valles chichñeos, es el reflejo de sus cerros colorados bañados por la luna..."</p>
+                <p>"Es el espíritu de los valles **chicheños**, es el reflejo de sus cerros colorados bañados por la luna..."</p>
                 <a href="tienda.html" class="cta-button">Ver Producto y Comprar</a>
             </div>
         </header>
@@ -561,11 +561,11 @@
             <div class="curiosidades-grid">
                 <div class="curiosidad-item">
                     <h3>Ingredientes Clave</h3>
-                    <p>Las hierbas maceradas incluyen <strong>Yerba Buena, Menta, Ruda, Manzanilla y Limón</strong>, una combinación que evoca los aromas naturales de los valles chichñeos.</p>
+                    <p>Las hierbas maceradas incluyen <strong>Yerba Buena, Menta, Ruda, Manzanilla y Limón</strong>, una combinación que evoca los aromas naturales de los valles chicheños.</p>
                 </div>
                 <div class="curiosidad-item">
                     <h3>El Símbolo Ancestral</h3>
-                    <p>El símbolo central dorado en la etiqueta es una figura ceremonial que representa la conexión de los pueblos chichñeos con las montañas y el espíritu festivo.</p>
+                    <p>El símbolo central dorado en la etiqueta es una figura ceremonial que representa la conexión de los pueblos chicheños con las montañas y el espíritu festivo.</p>
                 </div>
                 <div class="curiosidad-item">
                     <h3>El Origen del Producto</h3>
@@ -645,7 +645,7 @@
 
         <section id="comprar" style="text-align: center;">
             <h2>Adquiere la Botella de GUTIPA</h2>
-            <p style="font-size: 1.3em; color: var(--color-dorado); margin: 30px auto; max-width: 700px;">¡Lleva el espíritu de los Valles Chichñeos a tu hogar! Haz clic para comprar directamente.</p>
+            <p style="font-size: 1.3em; color: var(--color-dorado); margin: 30px auto; max-width: 700px;">¡Lleva el espíritu de los Valles Chicheños a tu hogar! Haz clic para comprar directamente.</p>
             <a href="tienda.html" class="cta-button">COMPRAR AHORA</a>
             <p style="margin-top: 30px; font-size: 0.95em; color: var(--color-texto-gris);">Producido y embotellado por Gooyoose Tupiza, Bolivia.</p>
         </section>
