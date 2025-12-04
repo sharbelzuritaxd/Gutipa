@@ -458,7 +458,8 @@
         <section class="producto-card">
             <!-- Imagen del producto -->
             <div class="producto-imagen">
-                <img src="mockup.png" alt="CUTIPA - Macerado de Hierbas de Tupiza" class="imagen-producto">
+                <!-- La imagen se mantiene con su origen (src) y el texto alternativo (alt) está vacío -->
+                <img src="./mockup.png" alt="CUTIPA Macerado de Hierbas" loading="lazy">
             </div>
 
             <div class="producto-detalles">
@@ -524,8 +525,8 @@
 
             // Mensaje de confirmación detallado
             const message = `¡Has añadido ${cantidad} unidad(es) de CUTIPA al carrito! 
-                             Tipo de Envío seleccionado: ${envio}. 
-                             Procesando tu pedido... pronto te contactaremos para finalizar la compra.`;
+                            Tipo de Envío seleccionado: ${envio}. 
+                            Procesando tu pedido... pronto te contactaremos para finalizar la compra.`;
             
             showMessageBox(message);
 
