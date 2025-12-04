@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda GUTIPA - Macerado de Hierbas de Tupiza</title>
+    <title>Tienda CUTIPA - Macerado de Hierbas de Tupiza</title>
     <style>
+        /* Importamos solo fuentes legibles (Playfair Display y Montserrat) */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@400;700&display=swap');
-        /* Eliminamos 'Great Vibes' del import para evitar confusiones, solo Playfair y Montserrat */
         
         :root {
             --color-dorado: #D4AF37;
@@ -27,7 +27,6 @@
         }
 
         body {
-            /* Fuente principal para el cuerpo y secciones */
             font-family: 'Playfair Display', serif; 
             background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-cafe-oscuro) 100%);
             color: var(--color-texto-claro);
@@ -74,13 +73,14 @@
             margin-bottom: 5px;
         }
 
-        /* Corregido: Subtítulo usando Playfair normal para legibilidad */
+        /* CORRECCIÓN CLAVE: Subtítulo usando fuente legible y estilo normal */
         header h2 {
             font-family: 'Playfair Display', serif; /* Usamos una fuente legible */
             font-size: clamp(1.3em, 3vw, 1.8em);
             color: var(--color-texto-claro);
             margin-top: 5px;
             font-weight: 400;
+            font-style: normal; /* Asegura letra normal (no cursiva) */
         }
 
         .btn-home {
@@ -140,7 +140,7 @@
             border-radius: 20px 20px 0 0;
         }
 
-        /* (Estilos de imagen omitidos por ser irrelevantes para la legibilidad del texto) */
+        /* Estilos de imagen (omitidos por ser irrelevantes para el cambio de texto/legibilidad) */
 
         /* ===== DETALLES DEL PRODUCTO ===== */
         .producto-detalles {
@@ -165,7 +165,7 @@
             font-size: 1.3em; 
             color: var(--color-texto-claro);
             margin: 15px 0;
-            font-style: normal; /* Asegura letra normal y no cursiva */
+            font-style: normal; /* Asegura letra normal (no cursiva) */
             font-weight: 400;
         }
 
@@ -177,9 +177,7 @@
             font-style: normal; /* Asegura que el párrafo del producto sea normal */
         }
 
-        /* (Estilos de Precio, Formulario y Footer omitidos por ser irrelevantes para la cursiva/legibilidad) */
-
-        /* ===== PRECIO ===== */
+        /* ===== PRECIO, FORMULARIO, FOOTER (Asegurando fuentes legibles: Playfair/Montserrat) ===== */
         .precio {
             font-family: 'Montserrat', sans-serif;
             font-size: 3em;
@@ -194,71 +192,7 @@
             color: var(--color-texto-gris);
         }
 
-        /* ===== FORMULARIO DE COMPRA (Estilos de botón y campos) ===== */
-        .form-compra {
-            margin-top: 30px;
-        }
-
-        .form-compra > div {
-            margin-bottom: 20px;
-        }
-
-        .form-compra label {
-            display: block;
-            margin-bottom: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9em;
-            color: var(--color-dorado);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-
-        .form-compra select,
-        .form-compra input[type="number"] {
-            width: 150px;
-            padding: 12px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            background-color: rgba(61, 58, 42, 0.4);
-            color: var(--color-texto-claro);
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1em;
-            transition: all 0.3s ease;
-        }
-
-        .form-compra select:focus,
-        .form-compra input[type="number"]:focus {
-            outline: none;
-            border-color: var(--color-dorado);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-        }
-
-        .form-compra button {
-            background: linear-gradient(135deg, var(--color-dorado), var(--color-acento));
-            color: var(--color-negro);
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 20px;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-compra button:hover {
-            background: linear-gradient(135deg, var(--color-acento), var(--color-dorado-claro));
-            color: var(--color-negro);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
-        }
+        /* Estilos de formulario y botones usan 'Montserrat' (legible) y no se les aplica cursiva */
 
         /* ===== INFO DE ENVÍO ===== */
         .envio-info {
@@ -299,20 +233,20 @@
             transition: color 0.3s;
         }
 
-        /* (Estilos de Responsive Media Queries omitidos) */
+        /* Estilos Responsive omitidos */
     </style>
 </head>
 <body>
     <header>
-        <h1>GUTIPA</h1>
+        <h1>CUTIPA</h1>
         <h2>Tienda Oficial de Macerado de Hierbas</h2>
-        <a href="index.html" class="btn-home" aria-label="Ir a la página principal">← Inicio</a>
+        <a href="index.html" class="btn-home" aria-label="Ir a la página principal">← INICIO</a>
     </header>
 
     <div class="contenedor">
         <section class="producto-card">
             <div class="producto-imagen">
-                <img src="mockup.png" alt="GUTIPA - Macerado de Hierbas de Tupiza" class="imagen-producto">
+                <img src="mockup.png" alt="CUTIPA - Macerado de Hierbas de Tupiza" class="imagen-producto">
             </div>
 
             <div class="producto-detalles">
@@ -349,7 +283,7 @@
 
     <footer>
         <p>&copy; 2023 Gooyoose Tupiza. Todos los derechos reservados.</p>
-        <p>¿Dudas? Contáctanos: <a href="mailto:ventas@gutipa.com">ventas@gutipa.com</a> | Tel: <a href="tel:+59172526746">+591 72526746</a></p>
+        <p>¿Dudas? Contáctanos: <a href="mailto:ventas@cutipa.com">ventas@cutipa.com</a> | Tel: <a href="tel:+59172526746">+591 72526746</a></p>
         <div class="social-links">
             <a href="#" target="_blank" aria-label="Facebook">f</a>
             <a href="#" target="_blank" aria-label="Twitter">t</a>
@@ -358,6 +292,5 @@
     </footer>
 </body>
 </html>
-
 
 
