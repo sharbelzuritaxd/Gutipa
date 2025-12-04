@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUTIPA: Macerado de Hierbas de Tupiza</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        
+        :root {
+            /* PALETA DORADO/CAFÉ */
+            --color-dorado: #D4AF37;
+            --color-dorado-claro: #E8C875;
+            --color-negro: #1A1A0F;
+            --color-negro-claro: #2B2B20;
+            --color-cafe-oscuro: #3D3A2A;
+            --color-cafe: #4A4632;
+            --color-texto-claro: #F5F5F5;
+            --color-texto-gris: #B0B0B0;
+            --color-acento: #C9B037;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-cafe-oscuro) 100%);
+            color: var(--color-texto-claro);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Partículas flotantes de fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(201, 176, 55, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== HERO MEJORADO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(214, 166, 101, 0.15) 0%, transparent 70%);
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            z-index: 2;
+        }
+
+
+        .hero h1 {
+            font-size: clamp(3em, 8vw, 6em);
+            font-weight: 900;
+            color: var(--color-dorado);
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-shadow: 
+                0 0 20px rgba(212, 175, 55, 0.5),
+                0 0 40px rgba(212, 175, 55, 0.3),
+                3px 3px 0 var(--color-cafe-oscuro);
+            animation: fadeInDown 1.2s ease-out 0.2s both;
+        }
+
+        .hero .subtitulo {
+            font-size: clamp(1.2em, 3vw, 1.8em);
+            color: var(--color-acento);
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInDown 1.2s ease-out 0.4s both;
+        }
+
+        .hero p {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.5em, 4vw, 2.5em);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--color-texto-claro);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+            animation: fadeIn 1.5s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-dorado), var(--color-acento));
+            color: var(--color-negro);
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            transition: all 0.4s ease;
+            animation: fadeInUp 1.2s ease-out 0.8s both;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+            background: linear-gradient(135deg, var(--color-acento), var(--color-dorado-claro));
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* ===== SECCIONES MEJORADAS ===== */
+        section {
+            margin: 100px 0;
+            padding: 60px 30px;
+            background: rgba(26, 26, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-dorado), var(--color-acento), var(--color-dorado));
+            border-radius: 20px 20px 0 0;
+        }
+
+        section h2 {
+            font-size: clamp(2em, 5vw, 3em);
+            font-weight: 700;
+            color: var(--color-dorado);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -15px;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--color-acento), transparent);
+            border-radius: 2px;
+        }
+
+        /* ===== GRID DE CURIOSIDADES MEJORADO ===== */
+        .curiosidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .curiosidad-item {
+            background: linear-gradient(135deg, rgba(61, 58, 42, 0.4), rgba(26, 26, 15, 0.6));
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid var(--color-dorado);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .curiosidad-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(214, 166, 101, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .curiosidad-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+            border-left-color: var(--color-acento);
+        }
+
+        .curiosidad-item:hover::before {
+            opacity: 1;
+        }
+
+        .curiosidad-item h3 {
+            font-size: 1.5em;
+            color: var(--color-dorado);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .curiosidad-item p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05em;
+            color: var(--color-texto-gris);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .advertencia {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--color-cafe-oscuro), var(--color-negro-claro)) !important;
+            border: 2px solid var(--color-dorado) !important;
+            text-align: center;
+            padding: 40px !important;
+        }
+
+        .advertencia h3 {
+            color: var(--color-texto-claro) !important;
+            font-size: 1.8em !important;
+        }
+
+        .advertencia p {
+            color: var(--color-texto-claro) !important;
+            font-size: 1.2em !important;
+            font-weight: 600;
+        }
+
+        /* ===== CÓCTELES MEJORADOS (Diseño de Miniatura) ===== */
+        .cocteles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .coctel-card {
+            background: linear-gradient(135deg, rgba(26, 26, 15, 0.8), rgba(61, 58, 42, 0.4));
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+
+        .coctel-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4);
+            border-color: var(--color-dorado);
+        }
+
+        /* Contenedor del enlace de video (para mantener el ratio 16:9) */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; 
+            background: var(--color-negro); /* Default black fallback */
+            border-bottom: 3px solid var(--color-dorado);
+        }
+
+        /* El enlace que contiene la miniatura y el botón de Play */
+        .video-link-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--color-texto-claro);
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            
+            /* Propiedades de la miniatura de YouTube */
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(0, 0, 0, 0.4); /* Capa oscura para que el Play resalte */
+        }
+
+        /* Ocultar el texto (¡La clave de la solicitud!) */
+        .video-link-placeholder {
+            /* Mantenemos el estilo para el contenedor de la imagen */
+            text-indent: -9999px; /* Oculta el texto */
+            white-space: nowrap; /* Evita que el texto envuelto arruine la altura */
+            overflow: hidden; /* Oculta el texto que se desborda */
+        }
+
+        /* Mostrar solo el ícono de Play */
+        .video-link-placeholder::before {
+            content: '▶'; /* Icono de Play */
+            font-size: 7em; /* Aumentamos el tamaño */
+            position: absolute; /* Para centrarlo y no verse afectado por text-indent */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--color-dorado);
+            transition: transform 0.3s, color 0.3s;
+            text-shadow: 0 0 20px rgba(0,0,0,0.9);
+            z-index: 10;
+            text-indent: 0; /* Aseguramos que el ícono sea visible */
+        }
+        
+        .video-link-placeholder:hover::before {
+            transform: translate(-50%, -50%) scale(1.1);
+            color: var(--color-acento);
+        }
+
+        /* Definición de las miniaturas por Video ID */
+        .mojito-thumb {
+            background-image: url('https://img.youtube.com/vi/Q5-C9o3w83E/hqdefault.jpg');
+        }
+        .sour-thumb {
+            background-image: url('https://img.youtube.com/vi/mST_o5gJISs/hqdefault.jpg');
+        }
+        .tonic-thumb {
+            background-image: url('https://img.youtube.com/vi/W-JKSt5Lg6c/hqdefault.jpg');
+        }
+
+        .video-link-placeholder:hover {
+            background-color: rgba(0, 0, 0, 0.2); /* Menos oscuro al pasar el ratón */
+        }
+
+        /* El span que antes contenía texto también debe ser invisible si existiera */
+        .video-link-placeholder span {
+            display: none;
+        }
+
+
+        /* Contenido de la tarjeta */
+        .coctel-card-content {
+            padding: 30px;
+        }
+
+        .coctel-card-content h3 {
+            font-size: 1.8em;
+            color: var(--color-dorado);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .coctel-card-content p {
+            color: var(--color-texto-gris);
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .coctel-card-content ul {
+            list-style: none;
+        }
+
+        .coctel-card-content ul li {
+            background: rgba(61, 58, 42, 0.5);
+            margin-bottom: 8px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            color: var(--color-texto-claro);
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .coctel-card-content ul li:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-left-color: var(--color-dorado);
+            transform: translateX(5px);
+        }
+
+        .coctel-card-content ul li::before {
+            content: '◆';
+            margin-right: 10px;
+            color: var(--color-dorado);
+            font-size: 1.2em;
+        }
+
+        /* ===== FOOTER MEJORADO ===== */
+        footer {
+            margin-top: 100px;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(60, 68, 89, 0.5));
+            border-top: 2px solid var(--color-dorado);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--color-texto-gris);
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: var(--color-dorado);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--color-acento);
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            margin: 0 10px;
+            background: linear-gradient(135deg, var(--color-acento), var(--color-dorado)); 
+            color: var(--color-texto-claro);
+            border-radius: 50%;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--color-dorado), var(--color-dorado-claro));
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(214, 166, 101, 0.4);
+        }
+
+        /* ===== ANIMACIONES Y RESPONSIVE ===== */
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 90vh;
+                padding: 60px 20px;
+            }
+
+            section {
+                padding: 40px 20px;
+                margin: 60px 0;
+            }
+
+            .curiosidades-grid,
+            .cocteles-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .coctel-card-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <header class="hero">
+            <div class="hero-content">
+                <h1>GUTIPA</h1>
+                <div class="subtitulo">Macerado de Hierbas</div>
+                <p>"Es el espíritu de los valles chichñeos, es el reflejo de sus cerros colorados bañados por la luna..."</p>
+                <a href="tienda.html" class="cta-button">Ver Producto y Comprar</a>
+            </div>
+        </header>
+
+        <section id="historia">
+            <h2>El Legado de GUTIPA: Tradición en Cada Gota</h2>
+            <p style="color: var(--color-texto-gris); font-size: 1.15em; text-align: center; max-width: 900px; margin: 0 auto;">
+                GUTIPA es un macerado artesanal elaborado en <strong>Tupiza, Bolivia</strong> y utiliza una selección de hierbas locales, incluyendo <strong>Yerba Buena, Menta, Ruda, Manzanilla y Limón</strong>, que le otorgan su sabor herbal, profundo y distintivo. Es un homenaje a la alegría, la cultura carnavalera y la naturaleza indómita de los Andes bolivianos.
+            </p>
+            <p style="color: var(--color-dorado); font-style: italic; text-align: center; margin-top: 20px; font-size: 1.1em;">
+                Graduación: <strong>30% Vol Alc</strong> | Producido en <strong>Tupiza, Bolivia</strong>
+            </p>
+        </section>
+
+        <section id="curiosidades">
+            <h2>Detalles del Símbolo y Advertencias</h2>
+            <div class="curiosidades-grid">
+                <div class="curiosidad-item">
+                    <h3>Ingredientes Clave</h3>
+                    <p>Las hierbas maceradas incluyen <strong>Yerba Buena, Menta, Ruda, Manzanilla y Limón</strong>, una combinación que evoca los aromas naturales de los valles chichñeos.</p>
+                </div>
+                <div class="curiosidad-item">
+                    <h3>El Símbolo Ancestral</h3>
+                    <p>El símbolo central dorado en la etiqueta es una figura ceremonial que representa la conexión de los pueblos chichñeos con las montañas y el espíritu festivo.</p>
+                </div>
+                <div class="curiosidad-item">
+                    <h3>El Origen del Producto</h3>
+                    <p>GUTIPA es un macerado de hierbas <strong>Hecho en Tupiza</strong> y elaborado en <strong>Tupiza, Bolivia</strong>, destacando su origen andino y su autenticidad regional.</p>
+                </div>
+                <div class="curiosidad-item advertencia">
+                    <h3>⚠ ADVERTENCIA LEGAL</h3>
+                    <p>EL CONSUMO EXCESIVO DE ALCOHOL ES DAÑINO PARA LA SALUD. VENTA PROHIBIDA A MENORES DE 18 AÑOS.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cocteles">
+            <h2>Prepara tus Rituales Líquidos con GUTIPA</h2>
+            <div class="cocteles-grid">
+                
+                <div class="coctel-card">
+                    <div class="video-container">
+                        <a href="https://www.youtube.com/watch?v=Q5-C9o3w83E" target="_blank" class="video-link-placeholder mojito-thumb" title="Ver tutorial de Mojito en YouTube">
+                            Video de Mojito
+                        </a>
+                    </div>
+                    <div class="coctel-card-content">
+                        <h3>Mojito Andino GUTIPA</h3>
+                        <p>Un giro refrescante del clásico mojito cubano. Las hierbas aromáticas de GUTIPA (<strong>yerba buena y menta</strong>) se combinan perfectamente con lima fresca y hierbabuena, creando una explosión de frescura herbal única.</p>
+                        <ul>
+                            <li>60 ml GUTIPA (Macerado de Hierbas)</li>
+                            <li>15 ml Jugo de lima fresco</li>
+                            <li>10 ml Jarabe simple</li>
+                            <li>8-10 hojas de hierbabuena fresca</li>
+                            <li>Soda o agua mineral</li>
+                            <li>Hielo picado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="coctel-card">
+                    <div class="video-container">
+                        <a href="https://www.youtube.com/watch?v=mST_o5gJISs" target="_blank" class="video-link-placeholder sour-thumb" title="Ver tutorial de Sour en YouTube">
+                            Video de Sour
+                        </a>
+                    </div>
+                    <div class="coctel-card-content">
+                        <h3>GUTIPA Sour</h3>
+                        <p>Un cóctel equilibrado estilo sour que resalta las notas cítricas del <strong>limón</strong> en el macerado. La clara de huevo aporta una textura sedosa mientras que el bíter de angostura completa la experiencia.</p>
+                        <ul>
+                            <li>60 ml GUTIPA (Macerado de Hierbas)</li>
+                            <li>30 ml Jugo de limón fresco</li>
+                            <li>20 ml Jarabe simple</li>
+                            <li>1 Clara de huevo</li>
+                            <li>2-3 gotas de bíter de angostura</li>
+                            <li>Hielo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="coctel-card">
+                    <div class="video-container">
+                        <a href="https://www.youtube.com/watch?v=W-JKSt5Lg6c" target="_blank" class="video-link-placeholder tonic-thumb" title="Ver tutorial de Gin Tonic en YouTube">
+                            Video de Tonic
+                        </a>
+                    </div>
+                    <div class="coctel-card-content">
+                        <h3>GUTIPA & Tonic</h3>
+                        <p>La simplicidad perfecta. Un highball refrescante donde el agua tónica premium realza las cualidades herbales de CUTIPA. Las notas de <strong>manzanilla y ruda</strong> brillan en esta preparación sencilla pero sofisticada.</p>
+                        <ul>
+                            <li>50 ml GUTIPA (Macerado de Hierbas)</li>
+                            <li>150 ml Agua tónica premium</li>
+                            <li>Rodaja de limón o lima</li>
+                            <li>Ramita de romero o menta fresca</li>
+                            <li>Hielo en cubos grandes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comprar" style="text-align: center;">
+            <h2>Adquiere la Botella de GUTIPA</h2>
+            <p style="font-size: 1.3em; color: var(--color-dorado); margin: 30px auto; max-width: 700px;">¡Lleva el espíritu de los Valles Chichñeos a tu hogar! Haz clic para comprar directamente.</p>
+            <a href="tienda.html" class="cta-button">COMPRAR AHORA</a>
+            <p style="margin-top: 30px; font-size: 0.95em; color: var(--color-texto-gris);">Producido y embotellado por Gooyoose Tupiza, Bolivia.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Gooyoose Tupiza. Todos los derechos reservados.</p>
+        <p>¿Dudas? Contáctanos: <a href="mailto:ventas@gutipa.com">ventas@gutipa.com</a> | Tel: +591 72526746</p>
+        <div class="social-links">
+            <a href="#" target="_blank" aria-label="Facebook">f</a>
+            <a href="#" target="_blank" aria-label="Twitter">t</a>
+            <a href="#" target="_blank" aria-label="Instagram">i</a>
+        </div>
+    </footer>
+</body>
+</html>

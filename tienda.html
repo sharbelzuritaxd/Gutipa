@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda GUTIPA - Macerado de Hierbas de Tupiza</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@400;700&display=swap');
+        
+        :root {
+            --color-dorado: #D4AF37;
+            --color-dorado-claro: #E8C875;
+            --color-negro: #1A1A0F;
+            --color-negro-claro: #2B2B20;
+            --color-cafe-oscuro: #3D3A2A;
+            --color-cafe: #4A4632;
+            --color-texto-claro: #F5F5F5;
+            --color-texto-gris: #B0B0B0;
+            --color-acento: #C9B037;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-cafe-oscuro) 100%);
+            color: var(--color-texto-claro);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(201, 176, 55, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(26, 26, 15, 0.8), rgba(61, 58, 42, 0.4));
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--color-dorado);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5em, 6vw, 4em);
+            font-weight: 900;
+            color: var(--color-dorado);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            text-shadow: 
+                0 0 20px rgba(212, 175, 55, 0.5),
+                3px 3px 0 var(--color-cafe-oscuro);
+            margin-bottom: 5px;
+        }
+
+        header h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.3em, 3vw, 1.8em);
+            color: var(--color-texto-claro);
+            margin-top: 5px;
+            font-weight: 400;
+        }
+
+        .btn-home {
+            display: inline-block;
+            margin-top: 15px;
+            background: linear-gradient(135deg, var(--color-dorado), var(--color-acento));
+            color: var(--color-negro);
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-dorado);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+        }
+
+        .btn-home:hover {
+            background: linear-gradient(135deg, var(--color-acento), var(--color-dorado-claro));
+            color: var(--color-negro);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* ===== CONTENEDOR ===== */
+        .contenedor {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== TARJETA DE PRODUCTO ===== */
+        .producto-card {
+            display: flex;
+            background: rgba(26, 26, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: left;
+            position: relative;
+        }
+
+        .producto-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-dorado), var(--color-acento), var(--color-dorado));
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* ===== IMAGEN DEL PRODUCTO ===== */
+        .producto-imagen {
+            flex: 1;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(61, 58, 42, 0.3), rgba(26, 26, 15, 0.5));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .producto-imagen::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: rotateBg 15s linear infinite;
+        }
+
+        @keyframes rotateBg {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .imagen-producto {
+            display: block;
+            width: auto;
+            max-width: 350px;
+            max-height: 450px;
+            border: 3px solid var(--color-dorado);
+            border-radius: 10px;
+            object-fit: contain;
+            box-shadow: 
+                0 20px 60px rgba(212, 175, 55, 0.3),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s ease;
+        }
+
+        .producto-imagen:hover .imagen-producto {
+            transform: scale(1.05) rotate(-1deg);
+        }
+
+        /* ===== DETALLES DEL PRODUCTO ===== */
+        .producto-detalles {
+            flex: 1.5;
+            padding: 50px;
+        }
+
+        .producto-detalles h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--color-dorado);
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--color-acento);
+            display: inline-block;
+            padding-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .producto-detalles > p:first-of-type {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.6em;
+            color: var(--color-texto-claro);
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .producto-detalles p {
+            color: var(--color-texto-gris);
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        /* ===== PRECIO ===== */
+        .precio {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--color-dorado);
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .precio small {
+            font-size: 0.4em;
+            color: var(--color-texto-gris);
+        }
+
+        /* ===== FORMULARIO DE COMPRA ===== */
+        .form-compra {
+            margin-top: 30px;
+        }
+
+        .form-compra > div {
+            margin-bottom: 20px;
+        }
+
+        .form-compra label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+            color: var(--color-dorado);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .form-compra select,
+        .form-compra input[type="number"] {
+            width: 150px;
+            padding: 12px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            background-color: rgba(61, 58, 42, 0.4);
+            color: var(--color-texto-claro);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .form-compra select:focus,
+        .form-compra input[type="number"]:focus {
+            outline: none;
+            border-color: var(--color-dorado);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .form-compra button {
+            background: linear-gradient(135deg, var(--color-dorado), var(--color-acento));
+            color: var(--color-negro);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-compra button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .form-compra button:hover {
+            background: linear-gradient(135deg, var(--color-acento), var(--color-dorado-claro));
+            color: var(--color-negro);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .form-compra button:hover::before {
+            left: 100%;
+        }
+
+        /* ===== INFO DE ENVÍO ===== */
+        .envio-info {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 0.95em;
+            color: var(--color-texto-gris);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+        }
+
+        .envio-info strong {
+            color: var(--color-dorado);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: 80px;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, rgba(26, 26, 15, 0.9), rgba(61, 58, 42, 0.5));
+            border-top: 3px solid var(--color-dorado);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95em;
+            color: var(--color-texto-gris);
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--color-dorado);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--color-acento);
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            margin: 0 10px;
+            background: linear-gradient(135deg, var(--color-dorado), var(--color-acento));
+            color: var(--color-negro);
+            border-radius: 50%;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--color-acento), var(--color-dorado-claro));
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 968px) {
+            .producto-card {
+                flex-direction: column;
+            }
+
+            .producto-imagen {
+                border-right: none;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            }
+
+            .producto-detalles {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .producto-detalles {
+                padding: 30px 20px;
+            }
+
+            .producto-detalles h3 {
+                font-size: 2em;
+            }
+
+            .precio {
+                font-size: 2.5em;
+            }
+
+            .form-compra select,
+            .form-compra input[type="number"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GUTIPA</h1>
+        <h2>Tienda Oficial de Macerado de Hierbas</h2>
+        <a href="index.html" class="btn-home" aria-label="Ir a la página principal">← Inicio</a>
+    </header>
+
+    <div class="contenedor">
+        <section class="producto-card">
+            <div class="producto-imagen">
+                <img src="mockup.png" alt="GUTIPA - Macerado de Hierbas de Tupiza" class="imagen-producto">
+            </div>
+
+            <div class="producto-detalles">
+                <h3>Edición Clásica | 30% vol.</h3>
+                <p>"Es el espíritu de los valles chichñeos, es el reflejo de sus cerros colorados bañados por la luna..."</p>
+                <p>El auténtico macerado artesanal de Tupiza, elaborado con las más finas hierbas andinas: <strong>Yerba Buena, Menta, Ruda, Manzanilla y Limón</strong>. Un sabor herbal profundo y complejo que evoca la riqueza cultural y paisajística de los Andes bolivianos. Ideal para beber solo o en cócteles que celebran la tradición carnavalera.</p>
+                
+                <div class="precio">Bs. 185<small> / Unidad</small></div>
+                
+                <form class="form-compra" onsubmit="event.preventDefault(); alert('Procesando pedido... Pronto te contactaremos.');">
+                    <div>
+                        <label for="cantidad">CANTIDAD</label>
+                        <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="10">
+                    </div>
+                    <div>
+                        <label for="tipo_envio">TIPO DE ENVÍO</label>
+                        <select id="tipo_envio" name="tipo_envio">
+                            <option value="estandar">Estándar (3-5 días)</option>
+                            <option value="express">Express (24h)</option>
+                            <option value="recoger">Recoger en Tienda (Gratis)</option>
+                        </select>
+                    </div>
+                    <button type="submit">AÑADIR AL CARRITO</button>
+                </form>
+                
+                <div class="envio-info">
+                    <strong>Envío Estándar:</strong> Bs. 25.00 a nivel nacional.<br>
+                    Producto exclusivo de <strong>Gooyoose Tupiza</strong>. 100% artesanal.<br>
+                    ⚠ <strong>EL CONSUMO EXCESIVO DE ALCOHOL ES DAÑINO PARA LA SALUD. VENTA PROHIBIDA A MENORES DE 18 AÑOS.</strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Gooyoose Tupiza. Todos los derechos reservados.</p>
+        <p>¿Dudas? Contáctanos: <a href="mailto:ventas@gutipa.com">ventas@gutipa.com</a> | Tel: <a href="tel:+59172526746">+591 72526746</a></p>
+        <div class="social-links">
+            <a href="#" target="_blank" aria-label="Facebook">f</a>
+            <a href="#" target="_blank" aria-label="Twitter">t</a>
+            <a href="#" target="_blank" aria-label="Instagram">i</a>
+        </div>
+    </footer>
+</body>
+</html>
