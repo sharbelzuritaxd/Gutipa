@@ -1,297 +1,325 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda CUTIPA - Macerado de Hierbas de Tupiza</title>
-    <style>
-        /* Importamos solo fuentes legibles (Playfair Display y Montserrat) */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@400;700&display=swap');
-        
-        :root {
-            --color-dorado: #D4AF37;
-            --color-dorado-claro: #E8C875;
-            --color-negro: #1A1A0F;
-            --color-negro-claro: #2B2B20;
-            --color-cafe-oscuro: #3D3A2A;
-            --color-cafe: #4A4632;
-            --color-texto-claro: #F5F5F5;
-            --color-texto-gris: #B0B0B0;
-            --color-acento: #C9B037;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda CUTIPA - Macerado de Hierbas de Tupiza</title>
+    <style>
+        /* Importamos solo fuentes legibles (Playfair Display y Montserrat) */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@400;700&display=swap');
+        
+        :root {
+            --color-dorado: #D4AF37;
+            --color-dorado-claro: #E8C875;
+            --color-negro: #1A1A0F;
+            --color-negro-claro: #2B2B20;
+            --color-cafe-oscuro: #3D3A2A;
+            --color-cafe: #4A4632;
+            --color-texto-claro: #F5F5F5;
+            --color-texto-gris: #B0B0B0;
+            --color-acento: #C9B037;
+        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        body {
-            font-family: 'Playfair Display', serif; 
-            background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-cafe-oscuro) 100%);
-            color: var(--color-texto-claro);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
+        body {
+            font-family: 'Playfair Display', serif; 
+            background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-cafe-oscuro) 100%);
+            color: var(--color-texto-claro);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(201, 176, 55, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(201, 176, 55, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
 
-        /* ===== HEADER ===== */
-        header {
-            padding: 40px 20px;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(26, 26, 15, 0.8), rgba(61, 58, 42, 0.4));
-            backdrop-filter: blur(10px);
-            border-bottom: 3px solid var(--color-dorado);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 1;
-        }
+        /* ===== HEADER ===== */
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(26, 26, 15, 0.8), rgba(61, 58, 42, 0.4));
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--color-dorado);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5em, 6vw, 4em);
-            font-weight: 900;
-            color: var(--color-dorado);
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            text-shadow: 
-                0 0 20px rgba(212, 175, 55, 0.5),
-                3px 3px 0 var(--color-cafe-oscuro);
-            margin-bottom: 5px;
-        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5em, 6vw, 4em);
+            font-weight: 900;
+            color: var(--color-dorado);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            text-shadow: 
+                0 0 20px rgba(212, 175, 55, 0.5),
+                3px 3px 0 var(--color-cafe-oscuro);
+            margin-bottom: 5px;
+        }
 
-        /* CORRECCIÓN CLAVE: Subtítulo usando fuente legible y estilo normal */
-        header h2 {
-            font-family: 'Playfair Display', serif; /* Usamos una fuente legible */
-            font-size: clamp(1.3em, 3vw, 1.8em);
-            color: var(--color-texto-claro);
-            margin-top: 5px;
-            font-weight: 400;
-            font-style: normal; /* Asegura letra normal (no cursiva) */
-        }
+        /* Subtítulo usando fuente legible y estilo normal */
+        header h2 {
+            font-family: 'Playfair Display', serif; /* Usamos una fuente legible */
+            font-size: clamp(1.3em, 3vw, 1.8em);
+            color: var(--color-texto-claro);
+            margin-top: 5px;
+            font-weight: 400;
+            font-style: normal; /* Asegura letra normal (no cursiva) */
+        }
 
-        .btn-home {
-            display: inline-block;
-            margin-top: 15px;
-            background: linear-gradient(135deg, var(--color-dorado), var(--color-acento));
-            color: var(--color-negro);
-            padding: 10px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: 2px solid var(--color-dorado);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9em;
-        }
+        .btn-home {
+            display: inline-block;
+            margin-top: 15px;
+            background: linear-gradient(135deg, var(--color-dorado), var(--color-acento));
+            color: var(--color-negro);
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-dorado);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+        }
 
-        .btn-home:hover {
-            background: linear-gradient(135deg, var(--color-acento), var(--color-dorado-claro));
-            color: var(--color-negro);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-        }
+        .btn-home:hover {
+            background: linear-gradient(135deg, var(--color-acento), var(--color-dorado-claro));
+            color: var(--color-negro);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
 
-        /* ===== CONTENEDOR ===== */
-        .contenedor {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
+        /* ===== CONTENEDOR ===== */
+        .contenedor {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
 
-        /* ===== TARJETA DE PRODUCTO ===== */
-        .producto-card {
-            display: flex;
-            background: rgba(26, 26, 15, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            text-align: left;
-            position: relative;
-        }
+        /* ===== TARJETA DE PRODUCTO ===== */
+        .producto-card {
+            display: flex;
+            background: rgba(26, 26, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: left;
+            position: relative;
+        }
 
-        .producto-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-dorado), var(--color-acento), var(--color-dorado));
-            border-radius: 20px 20px 0 0;
-        }
+        .producto-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-dorado), var(--color-acento), var(--color-dorado));
+            border-radius: 20px 20px 0 0;
+        }
 
-        /* Estilos de imagen (omitidos por ser irrelevantes para el cambio de texto/legibilidad) */
+        /* Estilos de imagen (omitiendo por brevedad) */
 
-        /* ===== DETALLES DEL PRODUCTO ===== */
-        .producto-detalles {
-            flex: 1.5;
-            padding: 50px;
-        }
+        /* ===== DETALLES DEL PRODUCTO ===== */
+        .producto-detalles {
+            flex: 1.5;
+            padding: 50px;
+        }
 
-        .producto-detalles h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            color: var(--color-dorado);
-            margin-bottom: 15px;
-            border-bottom: 3px solid var(--color-acento);
-            display: inline-block;
-            padding-bottom: 8px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+        .producto-detalles h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--color-dorado);
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--color-acento);
+            display: inline-block;
+            padding-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-        /* CORRECCIÓN CLAVE: Estilo de la cita - Fuente legible y estilo normal */
-        .producto-detalles > p:first-of-type {
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.3em; 
-            color: var(--color-texto-claro);
-            margin: 15px 0;
-            font-style: normal; /* Asegura letra normal (no cursiva) */
-            font-weight: 400;
-        }
+        /* Estilo de la cita - Fuente legible y estilo normal */
+        .producto-detalles > p:first-of-type {
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.3em; 
+            color: var(--color-texto-claro);
+            margin: 15px 0;
+            font-style: normal; /* Asegura letra normal (no cursiva) */
+            font-weight: 400;
+        }
 
-        .producto-detalles p {
-            color: var(--color-texto-gris);
-            font-size: 1.1em;
-            margin-bottom: 25px;
-            line-height: 1.8;
-            font-style: normal; /* Asegura que el párrafo del producto sea normal */
-        }
+        .producto-detalles p {
+            color: var(--color-texto-gris);
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-style: normal; /* Asegura que el párrafo del producto sea normal */
+        }
 
-        /* ===== PRECIO, FORMULARIO, FOOTER (Asegurando fuentes legibles: Playfair/Montserrat) ===== */
-        .precio {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3em;
-            font-weight: 700;
-            color: var(--color-dorado);
-            margin: 30px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+        /* ===== PRECIO, FORMULARIO, FOOTER (Asegurando fuentes legibles: Playfair/Montserrat) ===== */
+        .precio {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--color-dorado);
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-        .precio small {
-            font-size: 0.4em;
-            color: var(--color-texto-gris);
-        }
+        .precio small {
+            font-size: 0.4em;
+            color: var(--color-texto-gris);
+        }
 
-        /* Estilos de formulario y botones usan 'Montserrat' (legible) y no se les aplica cursiva */
+        /* Estilos de formulario y botones usan 'Montserrat' (legible) y no se les aplica cursiva (omitiendo por brevedad) */
 
-        /* ===== INFO DE ENVÍO ===== */
-        .envio-info {
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            font-size: 0.95em;
-            color: var(--color-texto-gris);
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.8;
-        }
+        /* ===== INFO DE ENVÍO ===== */
+        .envio-info {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 0.95em;
+            color: var(--color-texto-gris);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+        }
 
-        /* ===== FOOTER ===== */
-        footer {
-            margin-top: 80px;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, rgba(26, 26, 15, 0.9), rgba(61, 58, 42, 0.5));
-            border-top: 3px solid var(--color-dorado);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            position: relative;
-            z-index: 1;
-        }
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: 80px;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, rgba(26, 26, 15, 0.9), rgba(61, 58, 42, 0.5));
+            border-top: 3px solid var(--color-dorado);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
 
-        footer p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95em;
-            color: var(--color-texto-gris);
-            margin: 0;
-        }
+        footer p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95em;
+            color: var(--color-texto-gris);
+            margin: 0;
+        }
 
-        footer a {
-            color: var(--color-dorado);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+        footer a {
+            color: var(--color-dorado);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-        /* Estilos Responsive omitidos */
-    </style>
+        /* ESTILOS DE REDES SOCIALES (COPIADOS DEL INDEX) */
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            margin: 0 10px;
+            background: linear-gradient(135deg, var(--color-acento), var(--color-dorado)); 
+            color: var(--color-texto-claro);
+            border-radius: 50%;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--color-dorado), var(--color-dorado-claro));
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(214, 166, 101, 0.4);
+        }
+
+        /* Estilos Responsive omitidos */
+    </style>
 </head>
 <body>
-    <header>
-        <h1>CUTIPA</h1>
-        <h2>Tienda Oficial de Macerado de Hierbas</h2>
-        <a href="index.html" class="btn-home" aria-label="Ir a la página principal">← INICIO</a>
-    </header>
+    <header>
+        <h1>CUTIPA</h1>
+        <h2>Tienda Oficial de Macerado de Hierbas</h2>
+        <a href="index.html" class="btn-home" aria-label="Ir a la página principal">← INICIO</a>
+    </header>
 
-    <div class="contenedor">
-        <section class="producto-card">
-            <div class="producto-imagen">
-                <img src="mockup.png" alt="CUTIPA - Macerado de Hierbas de Tupiza" class="imagen-producto">
-            </div>
+    <div class="contenedor">
+        <section class="producto-card">
+            <div class="producto-imagen">
+                <img src="mockup.png" alt="CUTIPA - Macerado de Hierbas de Tupiza" class="imagen-producto">
+            </div>
 
-            <div class="producto-detalles">
-                <h3>Edición Clásica | 30% vol.</h3>
-                <p>"Es el espíritu de los valles chicheños, es el reflejo de sus cerros colorados bañados por la luna..."</p>
-                <p>El auténtico macerado artesanal de Tupiza, elaborado con las más finas hierbas andinas: <strong>Yerba Buena, Menta, Ruda, Manzanilla y Limón</strong>. Un sabor herbal profundo y complejo que evoca la riqueza cultural y paisajística de los Andes bolivianos. Ideal para beber solo o en cócteles que celebran la tradición carnavalera.</p>
-                
-                <div class="precio">Bs. 185<small> / Unidad</small></div>
-                
-                <form class="form-compra" onsubmit="event.preventDefault(); alert('Procesando pedido... Pronto te contactaremos.');">
-                    <div>
-                        <label for="cantidad">CANTIDAD</label>
-                        <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="10">
-                    </div>
-                    <div>
-                        <label for="tipo_envio">TIPO DE ENVÍO</label>
-                        <select id="tipo_envio" name="tipo_envio">
-                            <option value="estandar">Estándar (3-5 días)</option>
-                            <option value="express">Express (24h)</option>
-                            <option value="recoger">Recoger en Tienda (Gratis)</option>
-                        </select>
-                    </div>
-                    <button type="submit">AÑADIR AL CARRITO</button>
-                </form>
-                
-                <div class="envio-info">
-                    <strong>Envío Estándar:</strong> Bs. 25.00 a nivel nacional.<br>
-                    Producto exclusivo de <strong>Gooyoose Tupiza</strong>. 100% artesanal.<br>
-                    ⚠ <strong>EL CONSUMO EXCESIVO DE ALCOHOL ES DAÑINO PARA LA SALUD. VENTA PROHIBIDA A MENORES DE 18 AÑOS.</strong>
-                </div>
-            </div>
-        </section>
-    </div>
+            <div class="producto-detalles">
+                <h3>Edición Clásica | 30% vol.</h3>
+                <p>"Es el espíritu de los valles chicheños, es el reflejo de sus cerros colorados bañados por la luna..."</p>
+                <p>El auténtico macerado artesanal de Tupiza, elaborado con las más finas hierbas andinas: <strong>Yerba Buena, Menta, Ruda, Manzanilla y Limón</strong>. Un sabor herbal profundo y complejo que evoca la riqueza cultural y paisajística de los Andes bolivianos. Ideal para beber solo o en cócteles que celebran la tradición carnavalera.</p>
+                
+                <div class="precio">Bs. 185<small> / Unidad</small></div>
+                
+                <form class="form-compra" onsubmit="event.preventDefault(); alert('Procesando pedido... Pronto te contactaremos.');">
+                    <div>
+                        <label for="cantidad">CANTIDAD</label>
+                        <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="10">
+                    </div>
+                    <div>
+                        <label for="tipo_envio">TIPO DE ENVÍO</label>
+                        <select id="tipo_envio" name="tipo_envio">
+                            <option value="estandar">Estándar (3-5 días)</option>
+                            <option value="express">Express (24h)</option>
+                            <option value="recoger">Recoger en Tienda (Gratis)</option>
+                        </select>
+                    </div>
+                    <button type="submit">AÑADIR AL CARRITO</button>
+                </form>
+                
+                <div class="envio-info">
+                    <strong>Envío Estándar:</strong> Bs. 25.00 a nivel nacional.<br>
+                    Producto exclusivo de <strong>Gooyoose Tupiza</strong>. 100% artesanal.<br>
+                    ⚠ <strong>EL CONSUMO EXCESIVO DE ALCOHOL ES DAÑINO PARA LA SALUD. VENTA PROHIBIDA A MENORES DE 18 AÑOS.</strong>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <footer>
-        <p>&copy; 2023 Gooyoose Tupiza. Todos los derechos reservados.</p>
-        <p>¿Dudas? Contáctanos: <a href="mailto:ventas@cutipa.com">ventas@cutipa.com</a> | Tel: <a href="tel:+59172526746">+591 72526746</a></p>
-        <div class="social-links">
-            <a href="#" target="_blank" aria-label="Facebook">f</a>
-            <a href="#" target="_blank" aria-label="Twitter">t</a>
-            <a href="#" target="_blank" aria-label="Instagram">i</a>
-        </div>
-    </footer>
+    <footer>
+        <p>&copy; 2023 Gooyoose Tupiza. Todos los derechos reservados.</p>
+        <p>¿Dudas? Contáctanos: <a href="mailto:ventas@cutipa.com">ventas@cutipa.com</a> | Tel: <a href="tel:+59172526746">+591 72526746</a></p>
+        <div class="social-links">
+            <a href="#" target="_blank" aria-label="Facebook">f</a>
+            <a href="#" target="_blank" aria-label="Twitter">t</a>
+            <a href="#" target="_blank" aria-label="Instagram">i</a>
+        </div>
+    </footer>
 </body>
 </html>
+
 
 
 
