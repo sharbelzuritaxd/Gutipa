@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GUTIPA: Macerado de Hierbas de Tupiza</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900;1,800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
         
         :root {
             /* PALETA DORADO/CAFÉ */
-            --color-dorado: #D4AF37; /* Dorado estándar */
+            --color-dorado: #D4AF37; 
             --color-dorado-claro: #E8C875;
-            --color-negro: #1A1A0F; /* Negro muy oscuro, casi café */
+            --color-negro: #1A1A0F; 
             --color-negro-claro: #2B2B20;
             --color-cafe-oscuro: #3D3A2A;
             --color-cafe: #4A4632;
             --color-texto-claro: #F5F5F5;
             --color-texto-gris: #B0B0B0;
-            --color-acento: #C9B037; /* Tono de dorado ligeramente más rojizo/cobre */
+            --color-acento: #C9B037;
         }
 
         * {
@@ -28,7 +28,6 @@
 
         body {
             font-family: 'Playfair Display', serif;
-            /* Fondo con gradiente oscuro elegante */
             background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-cafe-oscuro) 100%);
             color: var(--color-texto-claro);
             line-height: 1.7;
@@ -118,8 +117,11 @@
             animation: fadeInDown 1.2s ease-out 0.4s both;
         }
 
+        /* MODIFICADO: Ahora usa la fuente principal Playfair Display */
         .hero p {
-            font-family: 'Great Vibes', cursive;
+            font-family: 'Playfair Display', serif; /* Usando Playfair Display */
+            font-style: italic; /* Añadido itálica */
+            font-weight: 400; /* Aseguramos un peso legible */
             font-size: clamp(1.5em, 4vw, 2.5em);
             max-width: 800px;
             margin: 0 auto 50px;
