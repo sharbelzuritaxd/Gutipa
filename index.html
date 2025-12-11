@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CUTIPA: Macerado de Hierbas de Tupiza</title>
+    <title>CUTIPA</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
         
@@ -117,10 +117,9 @@
             animation: fadeInDown 1.2s ease-out 0.4s both;
         }
 
-        /* MODIFICADO: Eliminado font-style: italic; para mejor legibilidad */
         .hero p {
             font-family: 'Playfair Display', serif;
-            font-style: normal; /* CAMBIO CLAVE: Asegura legibilidad total (sin cursiva) */
+            font-style: normal; 
             font-weight: 400; 
             font-size: clamp(1.0em, 2vw, 1.4em); 
             max-width: 800px;
@@ -319,13 +318,24 @@
             border-color: var(--color-dorado);
         }
 
-        /* Contenedor del enlace de video (formato vertical 9:16) */
+        /* Contenedor del video embebido (formato vertical 9:16) */
         .video-container {
             position: relative;
             width: 100%;
             padding-top: 177.78%; /* Ratio 9:16 - Formato vertical */
             background: var(--color-negro);
             border-bottom: 3px solid var(--color-dorado);
+            overflow: hidden;
+        }
+
+        /* iframe de YouTube embebido */
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* El enlace que contiene la miniatura y el botón de Play */
@@ -352,7 +362,6 @@
         .video-link-placeholder {
             text-indent: -9999px; 
             white-space: nowrap;
-            overflow: hidden; 
         }
 
         .video-link-placeholder span {
@@ -382,18 +391,6 @@
         .video-link-placeholder:hover {
             background-color: rgba(0, 0, 0, 0.2); 
         }
-
-        /* Definición de las miniaturas por Video ID (Imágenes de Youtube) */
-        .mojito-thumb {
-            background-image: url('https://img.youtube.com/vi/Q5-C9o3w83E/hqdefault.jpg');
-        }
-        .sour-thumb {
-            background-image: url('https://img.youtube.com/vi/mST_o5gJISs/hqdefault.jpg');
-        }
-        .tonic-thumb {
-            background-image: url('https://img.youtube.com/vi/W-JKSt5Lg6c/hqdefault.jpg');
-        }
-
 
         /* Contenido de la tarjeta del cóctel */
         .coctel-card-content {
@@ -486,7 +483,6 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            /* Usar íconos reales en producción (e.g., Font Awesome) */
         }
 
         .social-links a:hover {
@@ -540,7 +536,6 @@
         <header class="hero">
             <div class="hero-content">
                 <h1>CUTIPA</h1>
-                <div class="subtitulo">Macerado de Hierbas</div>
                 <p>"Es el espíritu de los valles chicheños, es el reflejo de sus cerros colorados bañados por la luna..."</p>
                 <a href="tienda.html" class="cta-button">Ver Producto y Comprar</a>
             </div>
@@ -584,44 +579,36 @@
                 
                 <div class="coctel-card">
                     <div class="video-container">
-                        <video width="100%" height="100%" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls>
-                            <source src="./video-mojito.mp4" type="video/mp4">
-                            Tu navegador no soporta HTML5 video.
-                        </video>
+                        <a href="https://youtube.com/shorts/p1-dgONKxAo" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://img.youtube.com/vi/p1-dgONKxAo/hqdefault.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-decoration: none;" title="Ver Vodka Sunrise en YouTube">
+                            <span style="font-size: 5em; color: var(--color-dorado); text-shadow: 0 0 30px rgba(0,0,0,0.95); z-index: 10;">▶</span>
+                        </a>
                     </div>
                     <div class="coctel-card-content">
-                        <h3>Vodka sunrise CUTIPA</h3>
-                        <p>Un giro refrescante del clásico mojito cubano. Las hierbas aromáticas de CUTIPA (<strong>yerba buena y menta</strong>) se combinan perfectamente con lima fresca y hierbabuena, creando una explosión de frescura herbal única.</p>
+                        <h3>Vodka Sunrise CUTIPA</h3>
+                        <p>Un espectáculo visual en tu copa. La densidad de la granadina crea un degradado natural que imita los colores del amanecer, mezclándose suavemente con la frescura cítrica de la naranja y el vodka. Servido sobre abundante hielo picado para una experiencia extra refrescante.</p>
                         <ul>
-                            <li>2 oz de vodka</li>
+                            <li>2 oz de Vodka</li>
                             <li>5 oz jugo de naranja</li>
-                            <li>1/2oz granadina</li>
-                            <li>Garnish</li>
-                            <li>Rodaja de naranja </li>
-                            <li>Cereza</li>
-                             <li>Hielo picado</li>
+                            <li>1/2 oz granadina</li>
+                            <li>Garnish: Rodaja de naranja y cereza</li>
+                            <li>Hielo picado</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="coctel-card">
                     <div class="video-container">
-                        <video width="100%" height="100%" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls>
-                            <source src="./video-tonic.mp4" type="video/mp4">
-                            Tu navegador no soporta HTML5 video.
-                        </video>
+                        <iframe src="https://www.youtube.com/embed/XXn97Sf5mmQ" title="Electric Lemonade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="coctel-card-content">
-                        <h3>CUTIPA Sour</h3>
-                        <p>Un cóctel equilibrado estilo sour que resalta las notas cítricas del <strong>limón</strong> en el macerado. La clara de huevo aporta una textura sedosa mientras que el bíter de angostura completa la experiencia.</p>
+                        <h3>Electric Lemonade</h3>
+                        <p>Una explosión de cítricos con un giro de color neón. El equilibrio dulce del Blue Curaçao se mezcla con la acidez del limón y la efervescencia de la gaseosa para crear un cóctel divertido, ligero y lleno de energía.</p>
                         <ul>
                             <li>2 oz de Vodka</li>
-                            <li>3/4 oz Blue Curacao</li>
-                            <li>1/2 oz jugo de limon</li>
+                            <li>3/4 oz Blue Curaçao</li>
+                            <li>1/2 oz jugo de limón</li>
                             <li>3 oz de Sprite</li>
-                            <li>Garnish</li>
-                             <li>Rodaja de limon</li>
-                             <li>Hierba buena</li>
+                            <li>Garnish: Rodaja de limón y hierbabuena</li>
                             <li>Hielo</li>
                         </ul>
                     </div>
@@ -629,26 +616,22 @@
 
                 <div class="coctel-card">
                     <div class="video-container">
-                        <video width="100%" height="100%" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls>
-                            <source src="./lv_0_20251211134707.mp4" type="video/mp4">
-
-                        </video>
+                        <iframe src="https://www.youtube.com/embed/wMzBpi6baM0" title="Hot Christmas" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="coctel-card-content">
-                        <h3>Hot Christmasc</h3>
-                        <p>La simplicidad perfecta. Un highball refrescante donde el agua tónica premium realza las cualidades herbales de CUTIPA. Las notas de <strong>manzanilla y ruda</strong> brillan en esta preparación sencilla pero sofisticada.</p>
+                        <h3>Hot Christmas</h3>
+                        <p>El espíritu de la Navidad en una copa. La robustez del whisky y el vodka se equilibran perfectamente con la dulzura profunda de la guinda y un toque cítrico. El aroma a romero fresco aporta una nota herbal que convierte este cóctel en una experiencia festiva inolvidable.</p>
                         <ul>
-                            <li> 1/2 oz de Whisky</li>
+                            <li>1/2 oz de Whisky</li>
                             <li>1 oz de Vodka</li>
                             <li>1/2 oz jugo de naranja</li>
                             <li>3 oz de jugo de guinda</li>
-                            <li>GarnishRomero</li>
-                            <li>Romero fresco</li>
-                            <li>Guindas frescas</li>
+                            <li>Garnish: Romero fresco y guindas</li>
                             <li>Hielo en cubos grandes</li>
                         </ul>
                     </div>
                 </div>
+
             </div>
         </section>
 
