@@ -51,30 +51,27 @@
 
         /* ===== HEADER ===== */
         header {
-            padding: 40px 20px 30px;
+            padding: 30px 20px;
             text-align: center;
             background: linear-gradient(135deg, rgba(20, 26, 38, 0.9), rgba(20, 26, 38, 0.7));
             backdrop-filter: blur(10px);
             border-bottom: 3px solid var(--color-principal-acento);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            /* Eliminamos 'position: sticky' para que el header se mueva con el scroll */
-            /* position: sticky; 
-            top: 0; 
-            z-index: 10; */ 
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.8em, 7vw, 4.5em);
+            font-size: clamp(1.8em, 7vw, 5em);
             font-weight: 900;
             color: var(--color-principal-acento);
             text-transform: uppercase;
-            letter-spacing: 8px;
+            letter-spacing: clamp(4px, 1.5vw, 8px);
             text-shadow: 
                 0 0 20px rgba(191, 166, 117, 0.6),
                 0 0 40px rgba(191, 166, 117, 0.4),
                 3px 3px 0 #121824;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
+            animation: fadeInDown 1.2s ease-out 0.2s both;
         }
 
         /* Usamos Montserrat para el eslogan para mayor legibilidad */
@@ -91,13 +88,13 @@
             display: inline-block;
             background: linear-gradient(135deg, var(--color-principal-acento), var(--color-acento-oscuro));
             color: #0F1419;
-            padding: 18px 50px;
+            padding: clamp(12px, 2vw, 18px) clamp(25px, 3vw, 50px);
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.2em;
+            font-size: clamp(0.9em, 2vw, 1.2em);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: clamp(1px, 0.5vw, 2px);
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(191, 166, 117, 0.5);
@@ -126,11 +123,25 @@
             left: 100%;
         }
 
+        section {
+            padding: clamp(25px, 6vw, 60px) clamp(15px, 5vw, 40px);
+            margin: clamp(40px, 8vw, 100px) 0;
+        }
+
+        section h2 {
+            font-size: clamp(1.6em, 5vw, 3em);
+            font-weight: 700;
+            color: var(--color-principal-acento);
+            text-align: center;
+            margin-bottom: clamp(20px, 4vw, 50px);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
         /* ===== CONTENEDOR PRINCIPAL ===== */
         .contenedor {
             max-width: 1200px;
-            margin: 60px auto 100px;
-            padding: 0 20px;
+            margin: clamp(40px, 8vw, 80px) auto clamp(60px, 10vw, 120px);
+            padding: 0 clamp(15px, 5vw, 40px);
             position: relative;
             z-index: 1;
             flex-grow: 1;
@@ -141,12 +152,13 @@
             display: flex;
             background: rgba(26, 26, 15, 0.8);
             backdrop-filter: blur(12px);
-            border-radius: 20px;
+            border-radius: clamp(12px, 3vw, 20px);
             overflow: hidden;
             box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
             border: 2px solid rgba(212, 175, 55, 0.3);
             text-align: left;
             position: relative;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         /* Línea superior dorada */
@@ -167,7 +179,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            min-height: 400px;
+            min-height: clamp(250px, 50vw, 500px);
         }
 
         /* Estilo para la imagen simulada */
@@ -187,18 +199,18 @@
         /* ===== DETALLES DEL PRODUCTO ===== */
         .producto-detalles {
             flex: 1.5;
-            padding: 50px;
+            padding: clamp(20px, 5vw, 50px);
             position: relative;
         }
 
         .producto-detalles h3 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8em, 4vw, 2.5em);
+            font-size: clamp(1.3em, 4vw, 2.2em);
             color: var(--color-principal-acento);
-            margin-bottom: 20px;
+            margin-bottom: clamp(12px, 3vw, 20px);
             border-bottom: 2px solid var(--color-principal-acento);
             display: inline-block;
-            padding-bottom: 8px;
+            padding-bottom: clamp(6px, 1vw, 8px);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
 
@@ -227,10 +239,10 @@
 
         /* ===== PRECIO Y COMPRA ===== */
         .precio {
-            font-size: 2.5em;
+            font-size: clamp(1.8em, 5vw, 2.5em);
             font-weight: 900;
             color: var(--color-principal-acento);
-            margin: 30px 0;
+            margin: clamp(15px, 4vw, 30px) 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
 
@@ -243,22 +255,22 @@
         .form-compra {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            align-items: center;
-            margin-bottom: 30px;
+            gap: clamp(12px, 2vw, 20px);
+            align-items: flex-end;
+            margin-bottom: clamp(20px, 4vw, 30px);
         }
 
         .form-compra > div {
             display: flex;
             flex-direction: column;
-            min-width: 150px;
+            min-width: clamp(140px, 100%, 200px);
         }
 
         .form-compra label {
-            font-size: 0.9em;
+            font-size: clamp(0.8em, 1.2vw, 0.9em);
             font-weight: 700;
             color: var(--color-principal-acento);
-            margin-bottom: 8px;
+            margin-bottom: clamp(4px, 1vw, 8px);
             text-transform: uppercase;
         }
 
@@ -267,9 +279,9 @@
             background-color: rgba(20, 26, 38, 0.8);
             border: 1px solid var(--color-principal-acento);
             color: var(--color-texto-claro);
-            padding: 12px 15px;
+            padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 15px);
             border-radius: 8px;
-            font-size: 1em;
+            font-size: clamp(0.9em, 1.3vw, 1em);
             appearance: none;
             cursor: pointer;
         }
@@ -278,15 +290,16 @@
             background: linear-gradient(135deg, var(--color-principal-acento), var(--color-acento-oscuro));
             color: #0F1419;
             font-weight: 700;
-            padding: 12px 30px;
+            padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 30px);
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            min-width: 200px;
+            letter-spacing: clamp(0.5px, 1vw, 1px);
+            min-width: clamp(120px, 80%, 200px);
             box-shadow: 0 10px 30px rgba(191, 166, 117, 0.5);
+            font-size: clamp(0.85em, 1.2vw, 1em);
         }
 
         .form-compra button:hover {
@@ -296,10 +309,10 @@
 
         /* ===== INFO DE ENVÍO Y ADVERTENCIA ===== */
         .envio-info {
-            margin-top: 30px;
-            padding-top: 25px;
+            margin-top: clamp(15px, 4vw, 30px);
+            padding-top: clamp(15px, 3vw, 25px);
             border-top: 1px solid rgba(191, 166, 117, 0.3);
-            font-size: 0.95em;
+            font-size: clamp(0.85em, 1.2vw, 0.95em);
             color: var(--color-texto-gris);
             line-height: 1.8;
         }
@@ -343,8 +356,8 @@
 
         /* ===== FOOTER ===== */
         footer {
-            margin-top: 100px;
-            padding: 50px 20px;
+            margin-top: clamp(60px, 10vw, 120px);
+            padding: clamp(35px, 5vw, 60px) clamp(15px, 5vw, 40px);
             background: linear-gradient(135deg, rgba(10, 14, 23, 0.95), rgba(20, 26, 38, 0.7));
             border-top: 2px solid var(--color-principal-acento);
             text-align: center;
@@ -352,7 +365,8 @@
 
         footer p {
             color: var(--color-texto-gris);
-            margin: 10px 0;
+            margin: clamp(6px, 1vw, 10px) 0;
+            font-size: clamp(0.85em, 1.3vw, 1em);
         }
 
         footer a {
@@ -369,13 +383,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
-            margin: 0 10px;
+            width: clamp(40px, 8vw, 50px);
+            height: clamp(40px, 8vw, 50px);
+            margin: 0 clamp(6px, 1.5vw, 10px);
             background: linear-gradient(135deg, var(--color-principal-acento), var(--color-acento-oscuro));
             color: #0F1419;
             border-radius: 50%;
-            font-size: 1.5em;
+            font-size: clamp(1.1em, 2vw, 1.5em);
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.4);
@@ -402,14 +416,407 @@
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        @media (max-width: 768px) {
-            .hero { min-height: 90vh; padding: 60px 20px; }
-            section { padding: 40px 20px; margin: 60px 0; }
-            .producto-card { flex-direction: column; }
-            .producto-imagen { min-height: 300px; }
-            .producto-detalles { padding: 30px; }
-            .form-compra { flex-direction: column; }
-            .form-compra button { width: 100%; }
+        /* Mobile pequeño - iPhone SE, iPhone 12 mini (320px - 374px) */
+        @media (max-width: 374px) {
+            .hero h1 {
+                font-size: 2em;
+                letter-spacing: 4px;
+            }
+
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 0.9em;
+                letter-spacing: 1px;
+            }
+
+            .contenedor {
+                margin: 30px auto 50px;
+                padding: 0 15px;
+            }
+
+            .producto-card {
+                flex-direction: column;
+                border-radius: 12px;
+            }
+
+            .producto-imagen {
+                min-height: 250px;
+            }
+
+            .imagen-producto {
+                width: 70%;
+            }
+
+            .producto-detalles {
+                padding: 20px;
+            }
+
+            .producto-detalles h3 {
+                font-size: 1.3em;
+                margin-bottom: 12px;
+            }
+
+            .producto-detalles p {
+                font-size: 0.9em;
+                margin-bottom: 12px;
+            }
+
+            .precio {
+                font-size: 1.8em;
+                margin: 15px 0;
+            }
+
+            .form-compra {
+                gap: 12px;
+            }
+
+            .form-compra label {
+                font-size: 0.8em;
+                margin-bottom: 4px;
+            }
+
+            .form-compra input,
+            .form-compra select {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            .form-compra button {
+                padding: 10px 20px;
+                font-size: 0.85em;
+                min-width: auto;
+                width: 100%;
+            }
+
+            .envio-info {
+                font-size: 0.85em;
+                margin-top: 15px;
+                padding-top: 15px;
+            }
+
+            footer p {
+                font-size: 0.8em;
+                margin: 8px 0;
+            }
+
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+                margin: 0 5px;
+            }
+        }
+
+        /* Mobile estándar (375px - 599px) */
+        @media (min-width: 375px) and (max-width: 599px) {
+            .hero h1 {
+                font-size: 2.2em;
+                letter-spacing: 5px;
+            }
+
+            .hero { 
+                min-height: 80vh; 
+                padding: 50px 20px;
+            }
+
+            .cta-button {
+                padding: 14px 40px;
+                font-size: 1em;
+                letter-spacing: 1.5px;
+            }
+
+            .contenedor {
+                margin: 40px auto 60px;
+                padding: 0 15px;
+            }
+
+            section {
+                padding: 30px 15px;
+                margin: 40px 0;
+            }
+
+            .producto-card {
+                flex-direction: column;
+                border-radius: 15px;
+            }
+
+            .producto-imagen {
+                min-height: 280px;
+            }
+
+            .imagen-producto {
+                width: 75%;
+            }
+
+            .producto-detalles {
+                padding: 25px;
+            }
+
+            .producto-detalles h3 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            .producto-detalles p {
+                font-size: 0.95em;
+                margin-bottom: 15px;
+            }
+
+            .precio {
+                font-size: 2em;
+                margin: 20px 0;
+            }
+
+            .form-compra {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .form-compra > div {
+                width: 100%;
+            }
+
+            .form-compra button {
+                width: 100%;
+                padding: 12px 25px;
+                font-size: 0.95em;
+            }
+
+            .envio-info {
+                font-size: 0.9em;
+                margin-top: 20px;
+                padding-top: 20px;
+            }
+
+            footer {
+                padding: 40px 15px;
+                margin-top: 60px;
+            }
+
+            footer p {
+                font-size: 0.85em;
+                margin: 8px 0;
+            }
+
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3em;
+                margin: 0 8px;
+            }
+        }
+
+        /* Tablet pequeña (600px - 767px) */
+        @media (min-width: 600px) and (max-width: 767px) {
+            .hero h1 {
+                font-size: 2.5em;
+                letter-spacing: 6px;
+            }
+
+            .hero { 
+                min-height: 85vh; 
+                padding: 60px 20px;
+            }
+
+            .cta-button {
+                padding: 16px 45px;
+                font-size: 1.05em;
+            }
+
+            .contenedor {
+                margin: 50px auto 80px;
+                padding: 0 20px;
+            }
+
+            section {
+                padding: 40px 20px;
+                margin: 60px 0;
+            }
+
+            .producto-card {
+                flex-direction: column;
+            }
+
+            .producto-imagen {
+                min-height: 320px;
+            }
+
+            .imagen-producto {
+                width: 80%;
+            }
+
+            .producto-detalles {
+                padding: 35px;
+            }
+
+            .producto-detalles h3 {
+                font-size: 1.8em;
+                margin-bottom: 18px;
+            }
+
+            .form-compra {
+                flex-direction: column;
+            }
+
+            .form-compra button {
+                width: 100%;
+            }
+
+            footer {
+                margin-top: 80px;
+                padding: 45px 20px;
+            }
+        }
+
+        /* Tablet grande (768px - 1024px) */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3em;
+                letter-spacing: 7px;
+            }
+
+            .hero { 
+                min-height: 90vh; 
+                padding: 70px 30px;
+            }
+
+            .cta-button {
+                padding: 16px 50px;
+                font-size: 1.1em;
+            }
+
+            .contenedor {
+                margin: 60px auto 100px;
+                padding: 0 30px;
+            }
+
+            section {
+                padding: 50px 30px;
+                margin: 70px 0;
+            }
+
+            .producto-card {
+                flex-direction: row;
+            }
+
+            .producto-imagen {
+                min-height: 450px;
+                flex: 0.9;
+            }
+
+            .producto-detalles {
+                flex: 1.1;
+                padding: 40px;
+            }
+
+            .form-compra {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 15px;
+                align-items: flex-end;
+            }
+
+            .form-compra > div {
+                flex: 1 1 auto;
+                min-width: 150px;
+            }
+
+            .form-compra button {
+                flex: 0 1 auto;
+                min-width: 180px;
+                padding: 12px 35px;
+            }
+
+            footer {
+                margin-top: 100px;
+                padding: 50px 30px;
+            }
+        }
+
+        /* Desktop (1025px+) */
+        @media (min-width: 1025px) {
+            .hero h1 {
+                font-size: clamp(3em, 8vw, 6em);
+            }
+
+            .hero { 
+                min-height: 100vh; 
+                padding: 80px 30px;
+            }
+
+            .cta-button {
+                font-size: clamp(1em, 2vw, 1.2em);
+                padding: clamp(14px, 2vw, 18px) clamp(30px, 4vw, 50px);
+            }
+
+            .contenedor {
+                max-width: 1200px;
+                margin: 80px auto 120px;
+                padding: 0 40px;
+            }
+
+            section {
+                padding: 60px 40px;
+                margin: 100px 0;
+            }
+
+            .producto-card {
+                flex-direction: row;
+            }
+
+            .producto-imagen {
+                min-height: 500px;
+                flex: 1;
+            }
+
+            .producto-detalles {
+                flex: 1.2;
+                padding: 50px;
+            }
+
+            .producto-detalles h3 {
+                font-size: 2.2em;
+            }
+
+            .form-compra {
+                flex-direction: row;
+                gap: 20px;
+                align-items: flex-end;
+            }
+
+            .form-compra > div {
+                flex: 1 1 auto;
+            }
+
+            .form-compra button {
+                flex: 0 1 auto;
+                min-width: 200px;
+            }
+
+            footer {
+                margin-top: 120px;
+                padding: 60px 40px;
+            }
+        }
+
+        /* Extra grande (1440px+) */
+        @media (min-width: 1440px) {
+            .contenedor {
+                max-width: 1400px;
+            }
+
+            section {
+                border-radius: 25px;
+            }
+
+            .producto-card {
+                border-radius: 25px;
+            }
+
+            .cta-button {
+                font-size: 1.3em;
+                padding: 20px 60px;
+            }
         }
     </style>
 </head>
@@ -503,9 +910,8 @@
         }
     </script>
 </body>
-                                    </html>
-
-
+</html>
+    
 
 
 
